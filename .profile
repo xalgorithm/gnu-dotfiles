@@ -20,3 +20,9 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+GPG_TTY=$(tty)
+export GPG_TTY
+if [ -z "$GPG_AGENT_INFO" ]; then
+    eval "$(gpg-agent --daemon --options ~/.gnupg/gpg-agent.conf)"
+fi

@@ -17,16 +17,13 @@ alias m="mate ."
 alias s="subl ."
 alias o="open"
 alias oo="open ."
-alias rhtunnel="ssh -L 5901:localhost:5901 -N -f -l xalg xalg-liquid.slac.stanford.edu"
-alias remotedev="sshfs dhcp-nebula-124-71.slac.stanford.edu:/Users/xalg/Sites/dc-sensors"
-alias yee="ssh xalg@dhcp-nebula-124-71.slac.stanford.edu"
+# example only, no longer working
+#alias rhtunnel="ssh -L 5901:localhost:5901 -N -f -l xalg xalg-liquid.slac.stanford.edu"
 alias hist='history | grep $1' #Requires one input
-alias rhprox="ssh -L 8080:localhost:8080 -N -f -l xalg rhbox-xalg.slac.stanford.edu"
 alias proxy='screen -s -d -m -S proxy ~/.dotfiles/proxy.sh'
 alias screens='screen -list'
 alias ports='sudo lsof -i -n -P | grep TCP'
 alias home='ssh -p 222 xalg@home.xalg.im'
-alias mini='ssh xalg@134.79.230.238'
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -35,7 +32,7 @@ else # OS X `ls`
 fi
 
 # List all files colorized in long format
-alias l="exa -l"
+alias l="ls -l ${colorflag}"
 
 # List all files colorized in long format, including dot files
 alias la="ls -bghHliS"
@@ -44,7 +41,7 @@ alias la="ls -bghHliS"
 alias lsd='ls -l ${colorflag} | grep "^d"'
 
 # Always use color output for `ls`
-alias ls="command exa"
+alias ls="command ls ${colorflag}"
 export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
 # Always enable colored `grep` output
@@ -55,6 +52,9 @@ alias egrep='egrep --color=auto'
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
+
+#make rsync over ssh faster
+alias sync='rsync -rave \"ssh\" '
 
 # Get week number
 alias week='date +%V'
@@ -131,20 +131,6 @@ alias varnishstatus='iptables -L -t nat |grep -q 6081; if [ "test$?" = "test0" ]
 
 alias chmweb='sh /usr/local/sbin/chmod_websites.sh'
 
-#Mine
-alias penguin='ssh xalg@www.xalg.im'
-alias liquid="ssh -p 222 xalg@xalgorithm.dyndns.org"
-
-#slac
-alias flora='ssh xalg@flora.slac.stanford.edu'
-
-alias aegir='ssh xalg@drupal-admin01.slac.stanford.edu'
-
-alias dev='ssh xalg@drupal-dev01.slac.stanford.edu'
-
-alias solr1='ssh xalg@172.23.52.16'
-
-alias solr2='ssh xalg@172.23.52.19'
 
 
 ######Git Aliases########
@@ -159,18 +145,12 @@ alias gull="git pull --all"
 
 alias sites="/var/sites"
 
-alias myup="sudo launchctl load -F /Library/LaunchDaemons/com.oracle.oss.mysql.mysqld.plist"
 
-alias myrestart="sudo launchctl unload -F /Library/LaunchDaemons/com.oracle.oss.mysql.mysqld.plist && sudo launchctl load -F /Library/LaunchDaemons/com.oracle.oss.mysql.mysqld.plist"
-
-alias mydown="sudo launchctl unload -F /Library/LaunchDaemons/com.oracle.oss.mysql.mysqld.plist"
-
-alias fredx="ssh  -X xalg@fred.slac.stanford.edu"
 
 alias ap="ansible-playbook "
 
-alias compser="/usr/local/bin/composer"
+alias composer="/usr/local/bin/composer"
 
 #include other scripts
-source "/Users/xalg/.dotfiles/docker-aliases"
-alias adb="/Users/xalg/Library/Android/sdk/platform-tools/adb"
+source "$HOME/.dotfiles/docker-aliases"
+alias adb="$HOME/Library/Android/sdk/platform-tools/adb"
