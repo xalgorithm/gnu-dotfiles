@@ -32,7 +32,7 @@ export TZ='America/Los_Angeles'
 
 
 
-export GDK_SCALE=2
+export GDK_SCALE=1.5
 export PACKAGE_DIRS="$HOME/.meteor/packages"
 export PATH=/usr/local/mysql/bin:$PATH
 
@@ -41,3 +41,7 @@ export AWS_SECRET_ACCESS_KEY='bnD5x9tskGnjdplq4W0c0deNIGxWx5DDN5gDiADl'
 
 export ANSIBLE_HOSTS="$HOME/.dotfiles/ansible_hosts"
 export EC2_INI_PATH="$HOME/.dotfiles/ec2.ini" 
+
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+
+#ssh-add -s /usr/lib/x86_64-linux-gnu/pkcs11/opensc-pkcs11.so
