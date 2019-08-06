@@ -1,4 +1,5 @@
 [personal]
+<<<<<<< HEAD
 fileserver ansible_host=192.168.0.3
 
 [testing] #windows
@@ -109,3 +110,73 @@ vcns
 #ansible_port=5986
 #ansible_winrm_transport=kerberos
 #ansible_winrm_server_cert_validation=ignore
+=======
+#www.xalg.im
+fileserver ansible_host=192.168.0.3
+
+[linuxnodes]
+nuc-server ansible_host=192.168.0.14
+xalg-nuc ansible_host=192.168.0.24
+
+[cpunodes]
+scn[001:006].ow 
+cn[000:075].ow 
+
+[zookeepers]
+10.0.140.20[1:3]
+
+[jobmaster]
+10.0.140.20[6:8]
+
+[jira]
+10.0.140.209
+
+[monitoring]
+maester ansible_host=10.0.140.213
+ec2-external-nagios ansible_host=54.202.250.130
+
+[applications]
+app02 ansible_host=10.0.140.22
+app03 ansible_host=10.0.140.23
+build ansible_host=10.0.140.30
+
+[kafka]
+kn01 ansible_host=10.0.140.3
+kn02 ansible_host=10.0.142.2
+kn03 ansible_host=10.0.142.3
+kn04 ansible_host=10.0.103.233
+kn05 ansible_host=10.0.103.234
+
+[elk]
+ls01 ansible_host=10.0.103.141
+ls02 ansible_host=10.0.140.32
+esh01 ansible_host=10.0.142.52
+esh02 ansible_host=10.0.142.53
+esh03 ansible_host=10.0.142.54
+
+[upload]
+upload02 ansible_host=10.0.103.73
+upload03 ansible_host=10.0.140.104
+
+[database]
+db01 ansible_host=10.0.142.41
+db02 ansible_host=10.0.142.42
+db03 ansible_host=10.0.142.43
+db04 ansible_host=10.0.142.44
+waynewood ansible_host=10.0.142.44
+
+[docker:children]
+applications
+
+[linux:children]
+cpunodes
+zookeepers
+monitoring
+applications
+kafka
+elk
+database
+
+[linux:vars]
+ansible_ssh_user=outward
+>>>>>>> 9d82ee29b83fd22a7d4facdf2b436c226c542e03

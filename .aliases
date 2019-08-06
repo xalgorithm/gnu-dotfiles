@@ -17,16 +17,13 @@ alias m="mate ."
 alias s="subl ."
 alias o="open"
 alias oo="open ."
-alias rhtunnel="ssh -L 5901:localhost:5901 -N -f -l xalg xalg-liquid.slac.stanford.edu"
-alias remotedev="sshfs dhcp-nebula-124-71.slac.stanford.edu:/Users/xalg/Sites/dc-sensors"
-alias yee="ssh xalg@dhcp-nebula-124-71.slac.stanford.edu"
+# example only, no longer working
+#alias rhtunnel="ssh -L 5901:localhost:5901 -N -f -l xalg xalg-liquid.slac.stanford.edu"
 alias hist='history | grep $1' #Requires one input
-alias rhprox="ssh -L 8080:localhost:8080 -N -f -l xalg rhbox-xalg.slac.stanford.edu"
 alias proxy='screen -s -d -m -S proxy ~/.dotfiles/proxy.sh'
 alias screens='screen -list'
 alias ports='sudo lsof -i -n -P | grep TCP'
 alias home='ssh -p 222 xalg@home.xalg.im'
-alias mini='ssh xalg@134.79.230.238'
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -55,6 +52,9 @@ alias egrep='egrep --color=auto'
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
+
+#make rsync over ssh faster
+alias sync='rsync -rave \"ssh\" '
 
 # Get week number
 alias week='date +%V'
@@ -131,20 +131,6 @@ alias varnishstatus='iptables -L -t nat |grep -q 6081; if [ "test$?" = "test0" ]
 
 alias chmweb='sh /usr/local/sbin/chmod_websites.sh'
 
-#Mine
-alias penguin='ssh xalg@www.xalg.im'
-alias liquid="ssh -p 222 xalg@xalgorithm.dyndns.org"
-
-#slac
-alias flora='ssh xalg@flora.slac.stanford.edu'
-
-alias aegir='ssh xalg@drupal-admin01.slac.stanford.edu'
-
-alias dev='ssh xalg@drupal-dev01.slac.stanford.edu'
-
-alias solr1='ssh xalg@172.23.52.16'
-
-alias solr2='ssh xalg@172.23.52.19'
 
 
 ######Git Aliases########
@@ -159,17 +145,15 @@ alias gull="git pull --all"
 
 alias sites="/var/sites"
 
-alias myup="sudo launchctl load -F /Library/LaunchDaemons/com.oracle.oss.mysql.mysqld.plist"
-
-alias myrestart="sudo launchctl unload -F /Library/LaunchDaemons/com.oracle.oss.mysql.mysqld.plist && sudo launchctl load -F /Library/LaunchDaemons/com.oracle.oss.mysql.mysqld.plist"
-
-alias mydown="sudo launchctl unload -F /Library/LaunchDaemons/com.oracle.oss.mysql.mysqld.plist"
 
 
 alias ap="ansible-playbook "
 
-alias compser="/usr/local/bin/composer"
+alias composer="/usr/local/bin/composer"
 
 alias kube="kubectl "
 #include other scripts
-source "/home/xalg/.dotfiles/docker-aliases"
+
+source "$HOME/.dotfiles/docker-aliases"
+alias adb="$HOME/Library/Android/sdk/platform-tools/adb"
+

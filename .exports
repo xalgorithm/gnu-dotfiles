@@ -30,6 +30,12 @@ export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 
 export TZ='America/Los_Angeles'
 
+<<<<<<< HEAD
+=======
+
+
+export GDK_SCALE=1.5
+>>>>>>> 9d82ee29b83fd22a7d4facdf2b436c226c542e03
 export PACKAGE_DIRS="$HOME/.meteor/packages"
 export PATH=/usr/local/mysql/bin:$PATH
 
@@ -41,9 +47,13 @@ export EC2_INI_PATH="$HOME/.dotfiles/ec2.ini"
 
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 
+<<<<<<< HEAD
 # ssh-add -s /usr/lib/x86_64-linux-gnu/pkcs11/opensc-pkcs11.so
 
 
 #kubernetes
 export KUBECONFIG="$HOME/.kube/config"
 export KUBE_FEATURE_GATES="BlockVolume=true"
+=======
+#ssh-add -s /usr/lib/x86_64-linux-gnu/pkcs11/opensc-pkcs11.so
+>>>>>>> 9d82ee29b83fd22a7d4facdf2b436c226c542e03
