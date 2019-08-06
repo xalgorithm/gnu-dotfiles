@@ -1,43 +1,111 @@
-[experimental]
-xalg-liquid.slac.stanford.edu
-
-[jenkins]
-134.79.196.67
-
-[jenkins-worker1]
-172.23.67.3 ansible_user=centos
-[jenkins-worker2]
-172.23.67.30  ansible_user=centos
-
-[solr]
-134.79.196.83
-
-[bosun-prod]
-134.79.196.80 ansible_user=centos
-
-[grafana]
-134.79.196.82 ansible_user=centos
-
 [personal]
-www.xalg.im ansible_user=xalg
+fileserver ansible_host=192.168.0.3
 
-[fileserver]
-192.168.0.2 ansible_user=xalg
+[testing] #windows
+testnode ansible_host=10.0.128.111
+fw011	ansible_host=10.0.140.236
 
-[drupal-prod]
-drupal-prod[01:04].slac.stanford.edu
+[linuxnodes]
+nuc-server ansible_host=192.168.0.14
+xalg-nuc ansible_host=192.168.0.24
 
-[drupal-stage]
-drupal-stage[01:02].slac.stanford.edu
+[scns]
+scn[015:041]
 
-[drupal-preprod]
-drupal-preprod[01:04].slac.stanford.edu
+[cns]
+cn[003:075] 
 
-[xalg-web]
-www.xalg.im ansible_user=xalg
+[vcns]
+vcn[055:125]
 
-[test]
-134.79.196.84 ansible_user=centos
+[zookeepers]
+10.0.140.20[1:3]
 
-[docker]
-docker.xalg.im
+[jobmaster]
+10.0.140.20[6:8]
+
+[jira]
+10.0.140.209
+
+[monitoring]
+maester ansible_host=10.0.140.213
+
+
+[applications]
+10.0.140.22
+10.0.140.23
+10.0.140.30
+
+[kafka]
+kn01 ansible_host=10.0.140.3
+kn02 ansible_host=10.0.142.2
+
+
+[elk]
+ls01 ansible_host=10.0.103.141
+ls02 ansible_host=10.0.140.32
+esh01 ansible_host=10.0.142.52
+esh02 ansible_host=10.0.142.53
+esh03 ansible_host=10.0.142.54
+
+[upload]
+upload02 ansible_host=10.0.103.73
+upload03 ansible_host=10.0.140.104
+
+[database]
+db01 ansible_host=10.0.142.41
+db02 ansible_host=10.0.142.42
+db03 ansible_host=10.0.142.43
+db04 ansible_host=10.0.142.44
+waynewood ansible_host=10.0.142.44
+
+[ml]
+ml01 ansible_host=10.0.128.102
+ml02 ansible_host=10.0.128.116
+ml03 ansible_host=10.0.128.114
+ml04 ansible_host=10.0.128.36
+titan ansible_host=10.0.128.12
+
+[kube]
+app03 ansible_host=10.0.140.23
+app02 ansible_host=10.0.140.22
+build ansible_host=10.0.140.30
+kube4 ansible_host=10.0.142.44
+
+[marquee]
+marquee ansible_host=10.0.128.55
+
+[marquee:vars]
+ansible_user=xalg
+ansible_pass=Pr1amsf0lly!
+
+outnuc ansible_host=10.0.128.96
+
+
+[linux:children]
+cpunodes
+zookeepers
+monitoring
+applications
+kafka
+elk
+database
+ml
+marquee
+
+[linux:vars]
+ansible_ssh_user=maint
+
+
+[cpunodes:children]
+scns
+cns
+vcns
+
+
+#[windows:vars]
+#ansible_user=dev
+#ansible_connection=winrm
+#ansible_port=5986
+#ansible_winrm_transport=kerberos
+#ansible_winrm_server_cert_validation=ignore
