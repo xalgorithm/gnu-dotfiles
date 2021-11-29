@@ -17,8 +17,6 @@ alias m="mate ."
 alias s="subl ."
 alias o="open"
 alias oo="open ."
-# example only, no longer working
-#alias rhtunnel="ssh -L 5901:localhost:5901 -N -f -l xalg xalg-liquid.slac.stanford.edu"
 alias hist='history | grep $1' #Requires one input
 alias proxy='screen -s -d -m -S proxy ~/.dotfiles/proxy.sh'
 alias screens='screen -list'
@@ -73,7 +71,7 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 alias gurl="curl --compressed"
 
 # IP addresses
-alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias mymyip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
@@ -139,7 +137,6 @@ alias varnishstatus='iptables -L -t nat |grep -q 6081; if [ "test$?" = "test0" ]
 alias chmweb='sh /usr/local/sbin/chmod_websites.sh'
 
 
-
 ######Git Aliases########
 
 alias gage="git stage -A"
@@ -150,28 +147,11 @@ alias gush="git push --all"
 
 alias gull="git pull --all"
 
-alias sites="/var/sites"
 
 
-#######Misc Aliases#######
-alias ans="$HOME/ansible/ansible-main"
+
 alias ap="ansible-playbook "
-
-alias composer="/usr/local/bin/composer"
-
 alias kube="kubectl "
-#include other scripts
-
 source "$HOME/.dotfiles/docker-aliases"
-alias adb="$HOME/bin/platform-tools/adb"
+alias adb="$HOME/Library/Android/sdk/platform-tools/adb"
 
-alias nuc="ssh nuc-server"
-
-alias fsdev="gcloud config set project devproject-309520"
-alias fsprod="gcloud config set project glass-hydra-267318"
-
-alias sshdev="gcloud compute ssh vince-dev --zone=us-west1-b"
-alias sshprod="gcloud compute ssh user-admin-app --zone=us-west1-c"
-
-alias fsvpn="/usr/bin/sshuttle --dns -r xalg@34.106.60.67 -e 'ssh -i ~/.ssh/id_ed25519' 0/0"
-alias cerebro="ssh cerebro"
