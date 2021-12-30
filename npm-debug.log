@@ -1,0 +1,322 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'update', '-g' ]
+2 info using npm@3.5.0
+3 info using node@v4.1.2
+4 silly mapToRegistry name bower
+5 silly mapToRegistry using default registry
+6 silly mapToRegistry registry https://registry.npmjs.org/
+7 silly mapToRegistry uri https://registry.npmjs.org/bower
+8 silly mapToRegistry name gulp
+9 silly mapToRegistry using default registry
+10 silly mapToRegistry registry https://registry.npmjs.org/
+11 silly mapToRegistry uri https://registry.npmjs.org/gulp
+12 silly mapToRegistry name gulp-rename
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/gulp-rename
+16 silly mapToRegistry name gulp-template
+17 silly mapToRegistry using default registry
+18 silly mapToRegistry registry https://registry.npmjs.org/
+19 silly mapToRegistry uri https://registry.npmjs.org/gulp-template
+20 silly mapToRegistry name js2coffee
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/js2coffee
+24 silly mapToRegistry name npm
+25 silly mapToRegistry using default registry
+26 silly mapToRegistry registry https://registry.npmjs.org/
+27 silly mapToRegistry uri https://registry.npmjs.org/npm
+28 silly mapToRegistry name t2-vm
+29 silly mapToRegistry using default registry
+30 silly mapToRegistry registry https://registry.npmjs.org/
+31 silly mapToRegistry uri https://registry.npmjs.org/t2-vm
+32 silly mapToRegistry name yargs
+33 silly mapToRegistry using default registry
+34 silly mapToRegistry registry https://registry.npmjs.org/
+35 silly mapToRegistry uri https://registry.npmjs.org/yargs
+36 verbose request uri https://registry.npmjs.org/t2-vm
+37 verbose request no auth needed
+38 info attempt registry request try #1 at 11:35:03 AM
+39 verbose request id dbcd9973396781e2
+40 http request GET https://registry.npmjs.org/t2-vm
+41 verbose request uri https://registry.npmjs.org/bower
+42 verbose request no auth needed
+43 info attempt registry request try #1 at 11:35:03 AM
+44 verbose etag "4TJ33TN2L2665EEPU4CC6OL09"
+45 http request GET https://registry.npmjs.org/bower
+46 verbose request uri https://registry.npmjs.org/gulp-rename
+47 verbose request no auth needed
+48 info attempt registry request try #1 at 11:35:03 AM
+49 verbose etag "E3EISP97SGFYGJNTP7V05MO41"
+50 http request GET https://registry.npmjs.org/gulp-rename
+51 verbose request uri https://registry.npmjs.org/gulp-template
+52 verbose request no auth needed
+53 info attempt registry request try #1 at 11:35:03 AM
+54 verbose etag "78ZQBM34Y9X3EH025OO32HUW9"
+55 http request GET https://registry.npmjs.org/gulp-template
+56 verbose request uri https://registry.npmjs.org/gulp
+57 verbose request no auth needed
+58 info attempt registry request try #1 at 11:35:03 AM
+59 verbose etag "5JSH6CUHJ1YA5ZYE4NPDSGBDA"
+60 http request GET https://registry.npmjs.org/gulp
+61 verbose request uri https://registry.npmjs.org/js2coffee
+62 verbose request no auth needed
+63 info attempt registry request try #1 at 11:35:03 AM
+64 verbose etag "14PV8NXWKD2I35NKBOSGCM7A8"
+65 http request GET https://registry.npmjs.org/js2coffee
+66 verbose request uri https://registry.npmjs.org/yargs
+67 verbose request no auth needed
+68 info attempt registry request try #1 at 11:35:03 AM
+69 verbose etag "2FHCFIFH8PXOZ2FR3VVXWBRA8"
+70 http request GET https://registry.npmjs.org/yargs
+71 verbose get https://registry.npmjs.org/npm not expired, no request
+72 http 200 https://registry.npmjs.org/gulp-rename
+73 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+73 verbose headers   etag: '"5HRXSZ43LLSM84HXOH5Y8RK6N"',
+73 verbose headers   'content-type': 'application/json',
+73 verbose headers   'cache-control': 'max-age=60',
+73 verbose headers   'content-length': '13344',
+73 verbose headers   'accept-ranges': 'bytes',
+73 verbose headers   date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+73 verbose headers   via: '1.1 varnish',
+73 verbose headers   age: '27',
+73 verbose headers   connection: 'keep-alive',
+73 verbose headers   'x-served-by': 'cache-sjc3129-SJC',
+73 verbose headers   'x-cache': 'HIT',
+73 verbose headers   'x-cache-hits': '34',
+73 verbose headers   'x-timer': 'S1448969703.275284,VS0,VE0',
+73 verbose headers   vary: 'Accept' }
+74 silly get cb [ 200,
+74 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+74 silly get     etag: '"5HRXSZ43LLSM84HXOH5Y8RK6N"',
+74 silly get     'content-type': 'application/json',
+74 silly get     'cache-control': 'max-age=60',
+74 silly get     'content-length': '13344',
+74 silly get     'accept-ranges': 'bytes',
+74 silly get     date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+74 silly get     via: '1.1 varnish',
+74 silly get     age: '27',
+74 silly get     connection: 'keep-alive',
+74 silly get     'x-served-by': 'cache-sjc3129-SJC',
+74 silly get     'x-cache': 'HIT',
+74 silly get     'x-cache-hits': '34',
+74 silly get     'x-timer': 'S1448969703.275284,VS0,VE0',
+74 silly get     vary: 'Accept' } ]
+75 verbose get saving gulp-rename to /Users/xalg/.npm/registry.npmjs.org/gulp-rename/.cache.json
+76 http 200 https://registry.npmjs.org/bower
+77 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+77 verbose headers   etag: '"CRVG2CRPU0RJNDIAEDTQP4P7J"',
+77 verbose headers   'content-type': 'application/json',
+77 verbose headers   'cache-control': 'max-age=60',
+77 verbose headers   'content-length': '151748',
+77 verbose headers   'accept-ranges': 'bytes',
+77 verbose headers   date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+77 verbose headers   via: '1.1 varnish',
+77 verbose headers   age: '16',
+77 verbose headers   connection: 'keep-alive',
+77 verbose headers   'x-served-by': 'cache-sjc3129-SJC',
+77 verbose headers   'x-cache': 'HIT',
+77 verbose headers   'x-cache-hits': '1',
+77 verbose headers   'x-timer': 'S1448969703.275315,VS0,VE1',
+77 verbose headers   vary: 'Accept' }
+78 silly get cb [ 200,
+78 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+78 silly get     etag: '"CRVG2CRPU0RJNDIAEDTQP4P7J"',
+78 silly get     'content-type': 'application/json',
+78 silly get     'cache-control': 'max-age=60',
+78 silly get     'content-length': '151748',
+78 silly get     'accept-ranges': 'bytes',
+78 silly get     date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+78 silly get     via: '1.1 varnish',
+78 silly get     age: '16',
+78 silly get     connection: 'keep-alive',
+78 silly get     'x-served-by': 'cache-sjc3129-SJC',
+78 silly get     'x-cache': 'HIT',
+78 silly get     'x-cache-hits': '1',
+78 silly get     'x-timer': 'S1448969703.275315,VS0,VE1',
+78 silly get     vary: 'Accept' } ]
+79 verbose get saving bower to /Users/xalg/.npm/registry.npmjs.org/bower/.cache.json
+80 http 200 https://registry.npmjs.org/gulp-template
+81 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+81 verbose headers   etag: '"8SZ812HSMD8LU09CZND8XAJKU"',
+81 verbose headers   'content-type': 'application/json',
+81 verbose headers   'cache-control': 'max-age=60',
+81 verbose headers   'content-length': '17554',
+81 verbose headers   'accept-ranges': 'bytes',
+81 verbose headers   date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+81 verbose headers   via: '1.1 varnish',
+81 verbose headers   age: '0',
+81 verbose headers   connection: 'keep-alive',
+81 verbose headers   'x-served-by': 'cache-sjc3122-SJC',
+81 verbose headers   'x-cache': 'HIT',
+81 verbose headers   'x-cache-hits': '1',
+81 verbose headers   'x-timer': 'S1448969703.275485,VS0,VE53',
+81 verbose headers   vary: 'Accept' }
+82 silly get cb [ 200,
+82 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+82 silly get     etag: '"8SZ812HSMD8LU09CZND8XAJKU"',
+82 silly get     'content-type': 'application/json',
+82 silly get     'cache-control': 'max-age=60',
+82 silly get     'content-length': '17554',
+82 silly get     'accept-ranges': 'bytes',
+82 silly get     date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+82 silly get     via: '1.1 varnish',
+82 silly get     age: '0',
+82 silly get     connection: 'keep-alive',
+82 silly get     'x-served-by': 'cache-sjc3122-SJC',
+82 silly get     'x-cache': 'HIT',
+82 silly get     'x-cache-hits': '1',
+82 silly get     'x-timer': 'S1448969703.275485,VS0,VE53',
+82 silly get     vary: 'Accept' } ]
+83 verbose get saving gulp-template to /Users/xalg/.npm/registry.npmjs.org/gulp-template/.cache.json
+84 http 200 https://registry.npmjs.org/yargs
+85 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+85 verbose headers   etag: '"B6U5HHWQ2MHTJ9HWRH1COA5ZY"',
+85 verbose headers   'content-type': 'application/json',
+85 verbose headers   'cache-control': 'max-age=60',
+85 verbose headers   'content-length': '167687',
+85 verbose headers   'accept-ranges': 'bytes',
+85 verbose headers   date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+85 verbose headers   via: '1.1 varnish',
+85 verbose headers   age: '41',
+85 verbose headers   connection: 'keep-alive',
+85 verbose headers   'x-served-by': 'cache-sjc3134-SJC',
+85 verbose headers   'x-cache': 'HIT',
+85 verbose headers   'x-cache-hits': '3',
+85 verbose headers   'x-timer': 'S1448969703.291013,VS0,VE0',
+85 verbose headers   vary: 'Accept' }
+86 silly get cb [ 200,
+86 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+86 silly get     etag: '"B6U5HHWQ2MHTJ9HWRH1COA5ZY"',
+86 silly get     'content-type': 'application/json',
+86 silly get     'cache-control': 'max-age=60',
+86 silly get     'content-length': '167687',
+86 silly get     'accept-ranges': 'bytes',
+86 silly get     date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+86 silly get     via: '1.1 varnish',
+86 silly get     age: '41',
+86 silly get     connection: 'keep-alive',
+86 silly get     'x-served-by': 'cache-sjc3134-SJC',
+86 silly get     'x-cache': 'HIT',
+86 silly get     'x-cache-hits': '3',
+86 silly get     'x-timer': 'S1448969703.291013,VS0,VE0',
+86 silly get     vary: 'Accept' } ]
+87 verbose get saving yargs to /Users/xalg/.npm/registry.npmjs.org/yargs/.cache.json
+88 http 404 https://registry.npmjs.org/t2-vm
+89 verbose headers { 'content-type': 'application/json',
+89 verbose headers   'cache-control': 'max-age=0',
+89 verbose headers   'content-length': '2',
+89 verbose headers   'accept-ranges': 'bytes',
+89 verbose headers   date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+89 verbose headers   via: '1.1 varnish',
+89 verbose headers   age: '0',
+89 verbose headers   connection: 'keep-alive',
+89 verbose headers   'x-served-by': 'cache-sjc3132-SJC',
+89 verbose headers   'x-cache': 'MISS',
+89 verbose headers   'x-cache-hits': '0',
+89 verbose headers   'x-timer': 'S1448969703.269050,VS0,VE89' }
+90 silly get cb [ 404,
+90 silly get   { 'content-type': 'application/json',
+90 silly get     'cache-control': 'max-age=0',
+90 silly get     'content-length': '2',
+90 silly get     'accept-ranges': 'bytes',
+90 silly get     date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+90 silly get     via: '1.1 varnish',
+90 silly get     age: '0',
+90 silly get     connection: 'keep-alive',
+90 silly get     'x-served-by': 'cache-sjc3132-SJC',
+90 silly get     'x-cache': 'MISS',
+90 silly get     'x-cache-hits': '0',
+90 silly get     'x-timer': 'S1448969703.269050,VS0,VE89' } ]
+91 http 200 https://registry.npmjs.org/gulp
+92 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+92 verbose headers   etag: '"ET7NJ5L8VUUHJNBJVHGYIQJLZ"',
+92 verbose headers   'content-type': 'application/json',
+92 verbose headers   'cache-control': 'max-age=60',
+92 verbose headers   'content-length': '108194',
+92 verbose headers   'accept-ranges': 'bytes',
+92 verbose headers   date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+92 verbose headers   via: '1.1 varnish',
+92 verbose headers   age: '0',
+92 verbose headers   connection: 'keep-alive',
+92 verbose headers   'x-served-by': 'cache-sjc3130-SJC',
+92 verbose headers   'x-cache': 'HIT',
+92 verbose headers   'x-cache-hits': '1',
+92 verbose headers   'x-timer': 'S1448969703.285556,VS0,VE86',
+92 verbose headers   vary: 'Accept' }
+93 silly get cb [ 200,
+93 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+93 silly get     etag: '"ET7NJ5L8VUUHJNBJVHGYIQJLZ"',
+93 silly get     'content-type': 'application/json',
+93 silly get     'cache-control': 'max-age=60',
+93 silly get     'content-length': '108194',
+93 silly get     'accept-ranges': 'bytes',
+93 silly get     date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+93 silly get     via: '1.1 varnish',
+93 silly get     age: '0',
+93 silly get     connection: 'keep-alive',
+93 silly get     'x-served-by': 'cache-sjc3130-SJC',
+93 silly get     'x-cache': 'HIT',
+93 silly get     'x-cache-hits': '1',
+93 silly get     'x-timer': 'S1448969703.285556,VS0,VE86',
+93 silly get     vary: 'Accept' } ]
+94 verbose get saving gulp to /Users/xalg/.npm/registry.npmjs.org/gulp/.cache.json
+95 http 200 https://registry.npmjs.org/js2coffee
+96 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+96 verbose headers   etag: '"4FMTX4YG1ATJLJA1D4HWK6BRX"',
+96 verbose headers   'content-type': 'application/json',
+96 verbose headers   'cache-control': 'max-age=60',
+96 verbose headers   'content-length': '55562',
+96 verbose headers   'accept-ranges': 'bytes',
+96 verbose headers   date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+96 verbose headers   via: '1.1 varnish',
+96 verbose headers   age: '0',
+96 verbose headers   connection: 'keep-alive',
+96 verbose headers   'x-served-by': 'cache-sjc3128-SJC',
+96 verbose headers   'x-cache': 'HIT',
+96 verbose headers   'x-cache-hits': '1',
+96 verbose headers   'x-timer': 'S1448969703.285634,VS0,VE174',
+96 verbose headers   vary: 'Accept' }
+97 silly get cb [ 200,
+97 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+97 silly get     etag: '"4FMTX4YG1ATJLJA1D4HWK6BRX"',
+97 silly get     'content-type': 'application/json',
+97 silly get     'cache-control': 'max-age=60',
+97 silly get     'content-length': '55562',
+97 silly get     'accept-ranges': 'bytes',
+97 silly get     date: 'Tue, 01 Dec 2015 11:35:03 GMT',
+97 silly get     via: '1.1 varnish',
+97 silly get     age: '0',
+97 silly get     connection: 'keep-alive',
+97 silly get     'x-served-by': 'cache-sjc3128-SJC',
+97 silly get     'x-cache': 'HIT',
+97 silly get     'x-cache-hits': '1',
+97 silly get     'x-timer': 'S1448969703.285634,VS0,VE174',
+97 silly get     vary: 'Accept' } ]
+98 verbose get saving js2coffee to /Users/xalg/.npm/registry.npmjs.org/js2coffee/.cache.json
+99 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/t2-vm
+99 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+99 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:242:14)
+99 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+99 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+99 verbose stack     at emitTwo (events.js:87:13)
+99 verbose stack     at Request.emit (events.js:172:7)
+99 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1082:10)
+99 verbose stack     at emitOne (events.js:82:20)
+99 verbose stack     at Request.emit (events.js:169:7)
+99 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+100 verbose statusCode 404
+101 verbose pkgid t2-vm
+102 verbose cwd /Users/xalg/.dotfiles
+103 error Darwin 15.0.0
+104 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "update" "-g"
+105 error node v4.1.2
+106 error npm  v3.5.0
+107 error code E404
+108 error 404 Registry returned 404 for GET on https://registry.npmjs.org/t2-vm
+109 error 404
+110 error 404 't2-vm' is not in the npm registry.
+111 error 404 You should bug the author to publish it (or use the name yourself!)
+112 error 404 Note that you can also install from a
+113 error 404 tarball, folder, http url, or git url.
+114 verbose exit [ 1, true ]

@@ -1,20 +1,19 @@
 
 [ -n "$PS1" ] && source ~/.bash_profile
-# Include Drush completion.
-if [ -f "$HOME/.drush/drush.complete.sh" ] ; then
-  source $HOME/.drush/drush.complete.sh
-fi
+## Include Drush completion.
+#if [ -f "$HOME/.drush/drush.complete.sh" ] ; then
+#  source $HOME/.drush/drush.complete.sh
+#fi
+#
+## Include Drush prompt customizations.
+#if [ -f "$HOME/.drush/drush.prompt.sh" ] ; then
+#  source $HOME/.drush/drush.prompt.sh
+#fi
 
-# Include Drush prompt customizations.
-if [ -f "$HOME/.drush/drush.prompt.sh" ] ; then
-  source $HOME/.drush/drush.prompt.sh
-fi
 
 
-
-<<<<<<< HEAD
 # Anaconda3 installation
-export PATH="$HOME/anaconda3/bin:$PATH"
+#export PATH="$HOME/anaconda3/bin:$PATH"
 
 # HSTR configuration - add this to ~/.bashrc
 alias hh=hstr                    # hh to be alias for hstr
@@ -29,20 +28,39 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
 # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
 if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
-=======
+
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/home/xalg/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/xalg/anaconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/xalg/anaconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/xalg/anaconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/xalg/google-cloud-sdk/path.bash.inc' ]; then . '/home/xalg/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/xalg/google-cloud-sdk/completion.bash.inc' ]; then . '/home/xalg/google-cloud-sdk/completion.bash.inc'; fi
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/xalg/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/xalg/bin/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/xalg/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/xalg/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/xalg/bin/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/xalg/bin/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/xalg/anaconda3/bin:$PATH"
+        export PATH="/home/xalg/bin/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
->>>>>>> 9d82ee29b83fd22a7d4facdf2b436c226c542e03
 
