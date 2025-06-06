@@ -21,7 +21,7 @@ export POSTGRESQL_DATABASE=xa
 GIT_AUTHOR_NAME="Vincent Flesouras"
 GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="vincent@fruitscout.ai"
+GIT_AUTHOR_EMAIL="x.algorithm@gmail.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 HOMEBREW_GITHUB_API_TOKEN="96312bdaf0a211d3008d377e41014700677cc0d9"
