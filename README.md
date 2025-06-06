@@ -30,6 +30,12 @@ cd ~/.dotfiles
 - `docker-aliases` - Docker-specific shortcuts
 - `.kube-aliases` - Kubernetes shortcuts
 
+## Security
+
+- Never store AWS credentials or other sensitive information in your dotfiles repository
+- Use the `.extra` file (not tracked by git) for any sensitive configuration
+- Check the `secure/` directory for examples of how to safely store sensitive information
+
 ## Customization
 
 Add your own custom settings to `.extra` which is sourced but not tracked in the repo. 
