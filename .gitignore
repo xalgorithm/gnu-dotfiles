@@ -1,0 +1,24 @@
+# Ignore sensitive files
+accessKeys.csv
+*.pem
+*.key
+*.crt
+*.cer
+secure/
+
+# Ignore personal information
+.extra
+
+# Ignore OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+npm-debug.log* 

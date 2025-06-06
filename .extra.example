@@ -1,0 +1,25 @@
+# This is an example .extra file
+# Copy this to .extra and customize with your private settings
+# .extra is ignored by git (see .gitignore)
+
+# Git credentials
+# Not in the repository, to prevent people from accidentally committing under my name
+GIT_AUTHOR_NAME="Your Name"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+git config --global user.name "$GIT_AUTHOR_NAME"
+GIT_AUTHOR_EMAIL="your.email@example.com"
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+git config --global user.email "$GIT_AUTHOR_EMAIL"
+
+# AWS credentials and helper functions
+# Example ECR login helper (replace with your actual values)
+# alias ecr-help="aws --profile=myprofile ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 123456789.dkr.ecr.us-west-2.amazonaws.com"
+
+# SSH agent configuration
+# ssh-add -K ~/.ssh/id_rsa
+
+# Custom PATH additions
+# export PATH=$PATH:~/custom/path
+
+# Any other private environment variables
+# export API_TOKEN="your-secret-token" 

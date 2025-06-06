@@ -1,4 +1,3 @@
-
 [ -n "$PS1" ] && source ~/.bash_profile
 
 # HSTR configuration - add this to ~/.bashrc
@@ -15,16 +14,4 @@ if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
 # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
 if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
 
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/xalg/bin/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/xalg/bin/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/xalg/bin/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/xalg/bin/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
+# NVM configuration moved to .exports
