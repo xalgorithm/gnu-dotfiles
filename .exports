@@ -1,0 +1,73 @@
+# Editor configuration
+if [ -f /usr/local/bin/subl ]; then
+    export EDITOR='subl -w'
+elif [ -f /usr/local/bin/mate ]; then
+    export EDITOR='mate'
+    export GIT_EDITOR='mate -wl1'
+else
+    export EDITOR="vim"
+fi
+
+# Locale settings
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US"
+export TZ='America/Los_Angeles'
+
+# Less configuration
+export MANPAGER="less -X"
+export LESS_TERMCAP_md="$ORANGE"
+
+# History configuration
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; echo -ne \"\033]0;${USER}@${HOSTNAME}\007\"; $PROMPT_COMMAND"
+
+# Avoid creating .DS_Store files on network or USB volumes
+export COPYFILE_DISABLE=true
+
+# PostgreSQL configuration
+export PGHOST=/tmp
+
+# Path additions
+export PATH="$HOME/bin:$PATH"
+export PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
+
+# Kubernetes configuration
+export KUBECONFIG="$HOME/.kube/config"
+export KUBE_EDITOR='code --wait'
+export KUBE_FEATURE_GATES="BlockVolume=true"
+export PATH="$PATH:$HOME/.kube/plugins/jordanwilson230"
+
+# Ansible configuration
+export ANSIBLE_CONFIG="$HOME/.config/ansible.cfg"
+export ANSIBLE_INVENTORY="$HOME/.dotfiles/ansible_hosts"
+export EC2_INI_PATH="$HOME/.dotfiles/ec2.ini" 
+
+# NVM (Node Version Manager)
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+# Volta (JavaScript Tool Manager)
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# FZF configuration
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+command -v fzf >/dev/null 2>&1 && eval "$(fzf --bash)"
+
+# XDG configuration
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Google Admin SDK
+function gam() { "$HOME/bin/gam/gam" "$@"; }
+
+# Google Cloud SDK
+if [ -f "$HOME/dev/google-cloud-sdk/path.bash.inc" ]; then 
+    source "$HOME/dev/google-cloud-sdk/path.bash.inc"
+    source "$HOME/dev/google-cloud-sdk/completion.bash.inc"
+fi 
