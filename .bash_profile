@@ -1,7 +1,7 @@
 # Source dot files in a specific order to avoid conflicts
 # The order is important:
 # 1. .bash_prompt - so prompt is configured early
-# 2. .exports - so environment variables are available to other scripts
+# 2. .exports - so environment variables are available to other scripts (includes Homebrew)
 # 3. .functions - so functions are available to aliases
 # 4. .aliases - depends on functions
 # 5. .kube-aliases - specific Kubernetes aliases
@@ -59,11 +59,8 @@ fi
 # Ruby environment
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# Homebrew
+# Homebrew bash completion (Homebrew PATH is set in .exports)
 if command -v brew &>/dev/null; then
-	eval "$(/opt/homebrew/bin/brew shellenv)"
-	
-	# Homebrew bash completion
 	HOMEBREW_PREFIX="$(brew --prefix)"
 	if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
 		source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"

@@ -1,3 +1,8 @@
+# Homebrew - Load first to ensure it's early in PATH
+if command -v /opt/homebrew/bin/brew &>/dev/null; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # Editor configuration
 if [ -f /usr/local/bin/subl ]; then
     export EDITOR='subl -w'
