@@ -1,9 +1,14 @@
-# Homebrew - Load first to ensure it's early in PATH
+# Homebrew
 if command -v /opt/homebrew/bin/brew &>/dev/null; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# Editor configuration
+# Locale & Time
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US"
+export TZ='America/Los_Angeles'
+
+# Editor
 if [ -f /usr/local/bin/subl ]; then
     export EDITOR='subl -w'
 elif [ -f /usr/local/bin/mate ]; then
@@ -13,81 +18,73 @@ else
     export EDITOR="vim"
 fi
 
-# Locale settings
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US"
-export TZ='America/Los_Angeles'
+# History & HSTR
+export HSTR_CONFIG=hicolor
+export HISTCONTROL=ignoredups:erasedups
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -c; history -r; echo -ne \"\033]0;${USER}@${HOSTNAME}\007\"; $PROMPT_COMMAND"
 
-# Less configuration
+# Styling / Colors
 export MANPAGER="less -X"
 export LESS_TERMCAP_md="$ORANGE"
+export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
-# Git prompt configuration
+# Git Prompt
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export PROMPT_DIRTRIM=3
 
-# HSTR configuration
-export HSTR_CONFIG=hicolor
-
-# History configuration
-export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
-export HISTSIZE=100000                   # big big history
-export HISTFILESIZE=100000               # big big history
-shopt -s histappend                      # append to history, don't overwrite it
-
-# Save and reload the history after each command finishes
-export PROMPT_COMMAND="history -a; history -c; history -r; echo -ne \"\033]0;${USER}@${HOSTNAME}\007\"; $PROMPT_COMMAND"
-
-# Avoid creating .DS_Store files on network or USB volumes
+# Misc Config
 export COPYFILE_DISABLE=true
-
-# PostgreSQL configuration
 export PGHOST=/tmp
-
-# GPG configuration
 export GPG_TTY=$(tty)
 
-# LS Colors
-export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
-
-# Path additions
+# PATH Additions
 export PATH="$HOME/bin:$PATH"
 export PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
+export PATH="/Users/xalg/.codeium/windsurf/bin:$PATH"
+export PATH="$PATH:/Users/xalg/.lmstudio/bin"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="$PATH:/Users/xalg/.pulumi/bin"
+export PATH="/Users/xalg/.antigravity/antigravity/bin:$PATH"
 
-# Kubernetes configuration
+# Kubernetes / Ansible 
 export KUBECONFIG="$HOME/.kube/config"
 export KUBE_EDITOR='code --wait'
 export KUBE_FEATURE_GATES="BlockVolume=true"
 export PATH="$PATH:$HOME/.kube/plugins/jordanwilson230"
-
-# Ansible configuration
 export ANSIBLE_CONFIG="$HOME/.config/ansible.cfg"
 export ANSIBLE_INVENTORY="$HOME/.dotfiles/ansible_hosts"
-export EC2_INI_PATH="$HOME/.dotfiles/ec2.ini" 
+export EC2_INI_PATH="$HOME/.dotfiles/ec2.ini"
 
-# NVM (Node Version Manager)
+# NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
-# Volta (JavaScript Tool Manager)
+# Volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-# FZF configuration
+# FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 command -v fzf >/dev/null 2>&1 && eval "$(fzf --bash)"
 
-# XDG configuration
+# XDG
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# Google Admin SDK
-function gam() { "$HOME/bin/gam/gam" "$@"; }
-
-# Google Cloud SDK
+# Google
 if [ -f "$HOME/dev/google-cloud-sdk/path.bash.inc" ]; then 
     source "$HOME/dev/google-cloud-sdk/path.bash.inc"
     source "$HOME/dev/google-cloud-sdk/completion.bash.inc"
 fi 
+export GEMINI_API_KEY=[REDACTED]
+
+# Local Env
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+# History Enhancements
+export HISTTIMEFORMAT="%F %T "

@@ -25,3 +25,10 @@ fi
 if [ -z "$GPG_AGENT_INFO" ]; then
     eval "$(gpg-agent --daemon --options ~/.gnupg/gpg-agent.conf)"
 fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/xalg/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+. "$HOME/.local/bin/env"

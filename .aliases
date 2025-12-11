@@ -1,14 +1,15 @@
-# Easier navigation: .., ..., ...., ....., ~ and -
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
-alias -- -="cd -"
+# Navigation (Zoxide)
+alias cd="z"
+alias ..="z .."
+alias ...="z ../.."
+alias ....="z ../../.."
+alias .....="z ../../../.."
+alias ~="z ~"
+alias -- -="z -"
 
 # Shortcuts
-alias d="cd ~/Dropbox"
-alias p="cd ~/Projects"
+alias d="z ~/Dropbox"
+alias p="z ~/dev"
 alias g="git"
 alias h="history"
 alias j="jobs"
@@ -17,141 +18,76 @@ alias m="mate ."
 alias s="subl ."
 alias o="open"
 alias oo="open ."
-alias hist='history | grep $1' #Requires one input
-alias proxy='screen -s -d -m -S proxy ~/.dotfiles/proxy.sh'
+alias hist='history | grep $1'
 alias screens='screen -list'
-alias ports='sudo lsof -i -n -P | grep TCP'
+alias ports='lsof -nP -i | egrep "LISTEN|UDP"'
 alias home='ssh -p 222 xalg@home.xalg.im'
+alias sizeof='du -h -d 1 . 2>/dev/null | sort -hr'
 
-#gcloud aliases
-
+# Google Cloud
 alias gc='gcloud '
 alias fsdev='gc config set project devproject-309520'
 alias fsprod='gc config set project glass-hydra-267318'
 
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
-else # OS X `ls`
-	colorflag="-G"
-fi
+# LS (Eza)
+alias ls='eza --icons'
+alias l='eza -l --icons --git'
+alias la='eza -la --icons --git'
+alias lt='eza --tree --icons'
+alias lsd='eza -lD --icons'
 
-# List all files colorized in long format
-alias l="ls -l ${colorflag}"
+# Cat (Bat)
+alias cat='bat'
+alias less='bat'
 
-# List all files colorized in long format, including dot files
-alias la="ls -bghHliS"
+# Grep (Ripgrep)
+alias grep='rg'
+alias fgrep='rg -F'
+alias egrep='rg'
 
-# List only directories
-alias lsd='ls -l ${colorflag} | grep "^d"'
+# Find (Fd)
+alias find='fd'
 
-# Always use color output for `ls` (LS_COLORS is set in .exports)
-alias ls="command ls ${colorflag}"
-
-# Always enable colored `grep` output
-# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
-# Enable aliases to be sudo'ed
+# Utils
 alias sudo='sudo '
-
-#make rsync over ssh faster
-alias sync='rsync -rave \"ssh\" '
-
-# Get week number
+alias sync='rsync -rave "ssh" '
 alias week='date +%V'
-
-# Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
-
-# Gzip-enabled `curl`
 alias gurl="curl --compressed"
-
-# IP addresses
 alias mymyip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
-# Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
-
-
-# Canonical hex dump; some systems have this symlinked
 command -v hd > /dev/null || alias hd="hexdump -C"
-
-# OS X has no `md5sum`, so use `md5` as a fallback
 command -v md5sum > /dev/null || alias md5sum="md5"
-
-# OS X has no `sha1sum`, so use `shasum` as a fallback
 command -v sha1sum > /dev/null || alias sha1sum="shasum"
-
-
-# Trim new lines and copy to clipboard
 alias c="tr -d '\n' | pbcopy"
-
-
-# URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
-
-
-# Ring the terminal bell, and put a badge on Terminal.app's Dock icon
-# (useful when executing time-consuming commands)
 alias badge="tput bel"
-
-# Intuitive map function
-# For example, to list all directories that contain a certain file:
-# find . -name .gitattributes | map dirname
 alias map="xargs -n1"
-
-# One of @janmoesen's ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
+        alias "$method"="lwp-request -m '$method'"
 done
-
-# Make Grunt print stack traces by default
 command -v grunt > /dev/null && alias grunt="grunt --stack"
-
-# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
-
-# Kill all the tabs in Chrome to free up memory
-# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
-# Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
-# Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 
+# Varnish / Web
 alias varnishon='iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 6081;iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 6081 -j REDIRECT --to-ports 80'
-
 alias varnishoff='iptables -t nat -D PREROUTING -i eth0 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 6081;iptables -t nat -D PREROUTING -i eth0 -p tcp -m tcp --dport 6081 -j REDIRECT --to-ports 80'
-
 alias varnishstatus='iptables -L -t nat |grep -q 6081; if [ "test$?" = "test0" ]; then echo "Varnish On"; else echo "Varnish Off"; fi'
-
 alias chmweb='sh /usr/local/sbin/chmod_websites.sh'
 
-
-######Git Aliases########
-
+# Git
 alias gage="git stage -A"
-
 alias gommit="git commit -a"
-
 alias gush="git push --all"
-
 alias gull="git pull --all"
 
-
-
-
-alias ap="ansible-playbook "
-
-######AWS Aliases#####
+# AWS
 alias awssso="aws sso login --profile"
 alias awsref="yawsso -p $@"
 alias aws-dailykos-root="awsref dailykos-root | egrep '(error|expired)' &&(awssso dailykos-root && awsref dailykos-root)"
@@ -160,15 +96,25 @@ alias aws-dailykos-prod="awsref dailykos-prod | egrep '(error|expired)' &&(awsss
 alias aws-dailykos-dev="awsref dailykos-dev | egrep '(error|expired)' &&(awssso dailykos-dev && awsref dailykos-prod)"
 alias aws-dailykos-dns="awsref dailykos-dns | egrep '(error|expired)' &&(awssso dailykos-dns && awsref dailykos-dns)"
 alias aws-dailykos-all="aws-dailykos-root; aws-dailykos-infra; aws-dailykos-prod; aws-dailykos-dns; aws-dailykos-dev;"
-# ECR login function moved to .extra for security
 alias kos-prod="aws configure sso --profile dailykos-prod"
 alias kos-dev="aws configure sso --profile dailykos-dev"
 alias kos-infra="aws configure sso --profile dailykos-infra"
 alias kos-dns="aws configure sso --profile dailykos-dns"
 alias kos-root="aws configure sso --profile dailykos-root"
+
+# Kubernetes / Terraform
 alias kubectl="kubecolor"
-
-#bfg repo cleaner
 alias bfg='java -jar /usr/local/bin/bfg.jar'
+alias terraform="/usr/local/bin/terraform"
 
+# Kube Config Switching
+export KUBECONFIG_EPYC="/Users/xalg/.kube/configs/epyc-config"
+export KUBECONFIG_EPYC2="/Users/xalg/.kube/configs/epyc2.conf"
+export KUBECONFIG_REBEL="/Users/xalg/.kube/configs/rebellion.conf"
+alias kset-epyc="export KUBECONFIG=$KUBECONFIG_EPYC && echo 'KUBECONFIG set to epyc' && kubectl config current-context"
+alias kset-epyc2="export KUBECONFIG=$KUBECONFIG_EPYC2 && echo 'KUBECONFIG set to epyc2' && kubectl config current-context"
+alias kset-rebel="export KUBECONFIG=$KUBECONFIG_REBEL && echo 'KUBECONFIG set to rebellion' && kubectl config current-context"
+alias kset-default="unset KUBECONFIG && echo 'KUBECONFIG unset, using default symlink' && kubectl config current-context"
 
+# HSTR
+alias hh=hstr
